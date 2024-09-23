@@ -36,7 +36,6 @@ fun ShoppingListApp() {
         Text("Shopping List", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Input fields for Item Name and Quantity
         OutlinedTextField(
             value = itemName,
             onValueChange = { itemName = it },
@@ -54,7 +53,6 @@ fun ShoppingListApp() {
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Add Item Button
         Button(onClick = {
             if (itemName.isNotEmpty() && itemQuantity.isNotEmpty()) {
                 shoppingList = shoppingList + ShoppingItem(itemName, itemQuantity)
@@ -67,7 +65,6 @@ fun ShoppingListApp() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Shopping List Display
         LazyColumn {
             items(shoppingList) { shoppingItem ->
                 ShoppingListItem(shoppingItem, onCheckedChange = { checked ->
@@ -96,7 +93,6 @@ fun ShoppingListItem(item: ShoppingItem, onCheckedChange: (Boolean) -> Unit) {
     }
 }
 
-// Data class for shopping items
 data class ShoppingItem(val name: String, val quantity: String, val isBought: Boolean = false)
 
 @Preview(showBackground = true)
